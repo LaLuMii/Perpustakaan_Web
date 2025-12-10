@@ -1,7 +1,11 @@
 <?php
 
-use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VBukuController;
 
-Route::get('/', [LandingController::class, 'index']);
+Route::get('/', fn() => view('index'))->name('landing');
+
+Route::get('/books', [VBukuController::class, 'index'])->name('vbuku.index');
+
+Route::get('/about', fn() => view('about'))->name('about');
 
